@@ -1,0 +1,7 @@
+{
+    "BASE_URL":"http://localhost:8080/",
+    "TRANSLATION_HELPER_ACTIVE": true,
+    "API_LOGGER_REQUEST_ENABLED": false,
+    "API_LOGGER_RESPONSE_ENABLED": false,
+    "USE_FAKE_API": false
+}
