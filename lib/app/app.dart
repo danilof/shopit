@@ -3,8 +3,10 @@ import "package:shop_it/services/api/api_service.dart";
 import 'package:shop_it/services/auth_service.dart';
 import 'package:shop_it/services/environment_service.dart';
 import 'package:shop_it/services/local_storage_service.dart';
+import 'package:shop_it/services/users_service.dart';
 import 'package:shop_it/ui/common/design_system/design_system_view.dart';
 import 'package:shop_it/ui/common/info_alert/info_alert_dialog.dart';
+import 'package:shop_it/ui/common/notice/notice_sheet.dart';
 import 'package:shop_it/ui/views/home/home_view.dart';
 import 'package:shop_it/ui/views/login/login_view.dart';
 import 'package:shop_it/ui/views/products/products_view.dart';
@@ -29,12 +31,13 @@ import 'package:stacked_services/stacked_services.dart';
   LazySingleton(classType: NavigationService),
   LazySingleton(classType: EnvironmentService),
   LazySingleton(classType: ApiService, asType: Api),
-  //LazySingleton(
-  //    classType: LocalStorageService,
-  //    resolveUsing: LocalStorageService.getInstance),
   InitializableSingleton(classType: LocalStorageService),
   LazySingleton(classType: AuthService),
+  LazySingleton(classType: UsersService),
 // @stacked-service
+], bottomsheets: [
+  StackedBottomsheet(classType: NoticeSheet)
+// @stacked-bottom-sheet
 ], dialogs: [
   StackedDialog(classType: InfoAlertDialog),
   // @stacked-dialog

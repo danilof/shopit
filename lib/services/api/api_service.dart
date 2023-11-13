@@ -19,12 +19,16 @@ abstract class ApiService implements Api {
   }
 
   @override
-  @GET("/users")
-  Future<UsersResponse> getAllUsers();
-
-  @override
   @POST("/auth/login")
   @FormUrlEncoded()
   Future<AuthUser> login(
       @Field("username") String username, @Field("password") String password);
+
+  @override
+  @GET("/users")
+  Future<UsersResponse> getAllUsers();
+
+  @override
+  @GET("/users/search?q={q}")
+  Future<UsersResponse> searchUsers(@Path("q") String query);
 }

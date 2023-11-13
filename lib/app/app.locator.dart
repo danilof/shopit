@@ -16,6 +16,7 @@ import '../services/api/api_service.dart';
 import '../services/auth_service.dart';
 import '../services/environment_service.dart';
 import '../services/local_storage_service.dart';
+import '../services/users_service.dart';
 
 final locator = StackedLocator.instance;
 
@@ -38,4 +39,5 @@ Future<void> setupLocator({
   locator.registerSingleton(localStorageService);
 
   locator.registerLazySingleton(() => AuthService());
+  locator.registerLazySingleton(() => UsersService());
 }

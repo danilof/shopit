@@ -4,10 +4,10 @@
 // StackedBottomsheetGenerator
 // **************************************************************************
 
-import 'package:shop_it/ui/common/notice/notice_sheet.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import 'app.locator.dart';
+import '../ui/common/notice/notice_sheet.dart';
 
 enum BottomSheetType {
   notice,

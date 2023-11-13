@@ -5,6 +5,7 @@ import 'package:shop_it/services/api/api_service.dart';
 import 'package:shop_it/services/auth_service.dart';
 import 'package:shop_it/services/environment_service.dart';
 import 'package:shop_it/services/local_storage_service.dart';
+import 'package:shop_it/services/users_service.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 // @stacked-import
@@ -19,6 +20,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<ApiService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<LocalStorageService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<AuthService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<UsersService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -29,6 +31,7 @@ void registerServices() {
   getAndRegisterApiService();
   getAndRegisterLocalStorageService();
   getAndRegisterUserService();
+  getAndRegisterUsersService();
 // @stacked-mock-register
 }
 
@@ -103,10 +106,17 @@ MockLocalStorageService getAndRegisterLocalStorageService() {
   return service;
 }
 
-MockUserService getAndRegisterUserService() {
+MockAuthService getAndRegisterUserService() {
   _removeRegistrationIfExists<AuthService>();
-  final service = MockUserService();
+  final service = MockAuthService();
   locator.registerSingleton<AuthService>(service);
+  return service;
+}
+
+MockUsersService getAndRegisterUsersService() {
+  _removeRegistrationIfExists<UsersService>();
+  final service = MockUsersService();
+  locator.registerSingleton<UsersService>(service);
   return service;
 }
 // @stacked-mock-create
