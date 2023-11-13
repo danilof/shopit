@@ -9,6 +9,7 @@ import 'notice_sheet_model.dart';
 class NoticeSheet extends StackedView<NoticeSheetModel> {
   final Function(SheetResponse)? completer;
   final SheetRequest request;
+
   const NoticeSheet({
     super.key,
     required this.completer,
@@ -24,7 +25,6 @@ class NoticeSheet extends StackedView<NoticeSheetModel> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       decoration: const BoxDecoration(
-        color: Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10),
           topRight: Radius.circular(10),
@@ -36,7 +36,7 @@ class NoticeSheet extends StackedView<NoticeSheetModel> {
         children: [
           Text(
             request.title!,
-            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w900),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
           ),
           verticalSpaceTiny,
           Text(
@@ -45,7 +45,7 @@ class NoticeSheet extends StackedView<NoticeSheetModel> {
             maxLines: 3,
             softWrap: true,
           ),
-          verticalSpaceLarge,
+          verticalSpaceMedium,
         ],
       ),
     );

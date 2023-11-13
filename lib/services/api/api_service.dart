@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:shop_it/models/models.dart';
 import 'package:shop_it/services/api/api.dart';
 import 'package:shop_it/services/api/api_interceptor.dart';
 import 'package:shop_it/services/environment_service.dart';
@@ -16,4 +17,14 @@ abstract class ApiService implements Api {
     dio.interceptors.add(DioInterceptor(dio));
     return _ApiService(dio, baseUrl: EnvironmentService.baseUrl);
   }
+
+  @override
+  @GET("/users")
+  Future<UsersResponse> getAllUsers();
+
+  @override
+  @POST("/auth/login")
+  @FormUrlEncoded()
+  Future<AuthUser> login(
+      @Field("username") String username, @Field("password") String password);
 }

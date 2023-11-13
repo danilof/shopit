@@ -1,9 +1,12 @@
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:shop_it/app/app.locator.dart';
-import 'package:stacked_services/stacked_services.dart';
-import 'package:shop_it/services/environment_service.dart';
 import 'package:shop_it/services/api/api_service.dart';
+import 'package:shop_it/services/auth_service.dart';
+import 'package:shop_it/services/environment_service.dart';
+import 'package:shop_it/services/local_storage_service.dart';
+import 'package:stacked_services/stacked_services.dart';
+
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -14,6 +17,8 @@ import 'test_helpers.mocks.dart';
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<EnvironmentService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<ApiService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<LocalStorageService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<AuthService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -22,6 +27,8 @@ void registerServices() {
   getAndRegisterDialogService();
   getAndRegisterEnvironmentService();
   getAndRegisterApiService();
+  getAndRegisterLocalStorageService();
+  getAndRegisterUserService();
 // @stacked-mock-register
 }
 
@@ -86,6 +93,20 @@ MockApiService getAndRegisterApiService() {
   _removeRegistrationIfExists<ApiService>();
   final service = MockApiService();
   locator.registerSingleton<ApiService>(service);
+  return service;
+}
+
+MockLocalStorageService getAndRegisterLocalStorageService() {
+  _removeRegistrationIfExists<LocalStorageService>();
+  final service = MockLocalStorageService();
+  locator.registerSingleton<LocalStorageService>(service);
+  return service;
+}
+
+MockUserService getAndRegisterUserService() {
+  _removeRegistrationIfExists<AuthService>();
+  final service = MockUserService();
+  locator.registerSingleton<AuthService>(service);
   return service;
 }
 // @stacked-mock-create
