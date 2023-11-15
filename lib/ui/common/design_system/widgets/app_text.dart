@@ -15,30 +15,35 @@ class AppText extends StatelessWidget {
       this.icon,
       this.textOverflow})
       : style = heading1Style.copyWith(color: color);
+
   AppText.headingTwo(this.text,
       {super.key,
       Color color = kcMediumGreyColor,
       this.icon,
       this.textOverflow})
       : style = heading2Style.copyWith(color: color);
+
   AppText.headingThree(this.text,
       {super.key,
       Color color = kcMediumGreyColor,
       this.icon,
       this.textOverflow})
       : style = heading3Style.copyWith(color: color);
+
   AppText.headline(this.text,
       {super.key,
       Color color = kcMediumGreyColor,
       this.icon,
       this.textOverflow})
       : style = headlineStyle.copyWith(color: color);
+
   AppText.subheading(this.text,
       {super.key,
       Color color = kcMediumGreyColor,
       this.icon,
       this.textOverflow})
       : style = subheadingStyle.copyWith(color: color);
+
   AppText.caption(this.text,
       {super.key,
       Color color = kcMediumGreyColor,
@@ -52,6 +57,13 @@ class AppText extends StatelessWidget {
       this.icon,
       this.textOverflow})
       : style = bodyStyle.copyWith(color: color);
+
+  const AppText.styled(this.text,
+      {super.key,
+      Color color = kcMediumGreyColor,
+      this.icon,
+      this.textOverflow,
+      required this.style});
 
   @override
   Widget build(BuildContext context) {

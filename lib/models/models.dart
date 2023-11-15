@@ -53,6 +53,41 @@ class AuthUser with _$AuthUser, SerializeJson {
       _$AuthUserFromJson(json);
 }
 
+@freezed
+class ProductsResponse with _$ProductsResponse, SerializeJson {
+  ProductsResponse._();
+
+  factory ProductsResponse(
+      {required List<Product> products,
+      required int total,
+      required int skip,
+      required int limit}) = _ProductsResponse;
+
+  factory ProductsResponse.fromJson(Map<String, dynamic> json) =>
+      _$ProductsResponseFromJson(json);
+}
+
+@freezed
+class Product with _$Product, SerializeJson {
+  Product._();
+
+  factory Product(
+      {required int id,
+      required String title,
+      required String description,
+      required int price,
+      required double discountPercentage,
+      required double rating,
+      required int stock,
+      required String brand,
+      required String category,
+      required String thumbnail,
+      required List<String> images}) = _Product;
+
+  factory Product.fromJson(Map<String, dynamic> json) =>
+      _$ProductFromJson(json);
+}
+
 mixin SerializeJson {
   Map<String, dynamic> toJson();
 }

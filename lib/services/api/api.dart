@@ -6,4 +6,8 @@ abstract class Api {
   Future<UsersResponse> getAllUsers();
 
   Future<UsersResponse> searchUsers(String query);
+
+  Future<ProductsResponse> getProducts();
+
+  Future<ProductsResponse> searchProducts(String query);
 }

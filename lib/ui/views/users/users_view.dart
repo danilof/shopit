@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shop_it/app/localization/all_translations.dart';
 import 'package:shop_it/models/models.dart';
-import 'package:shop_it/ui/common/design_system/ui_helpers.dart';
 import 'package:shop_it/ui/common/design_system/widgets/app_text.dart';
 import 'package:shop_it/ui/common/design_system/widgets/loading_indicator.dart';
+import 'package:shop_it/ui/common/widgets/empty_view.dart';
 import 'package:shop_it/ui/common/widgets/search_widget.dart';
 import 'package:shop_it/ui/views/users/widgets/user_widget.dart';
 import 'package:stacked/stacked.dart';
@@ -11,7 +11,7 @@ import 'package:stacked/stacked.dart';
 import 'users_viewmodel.dart';
 
 class UsersView extends StackedView<UsersViewModel> {
-  UsersView({super.key});
+  const UsersView({super.key});
 
   @override
   Widget builder(
@@ -41,7 +41,13 @@ class UsersView extends StackedView<UsersViewModel> {
                   ? buildContentView(viewModel)
                   : (viewModel.isBusy)
                       ? Container()
-                      : emptyView(),
+                      : EmptyView(
+                          title: allTranslations
+                              .text("users_list_no_data_title")
+                              .toString(),
+                          description: allTranslations
+                              .text("users_list_no_data_desc")
+                              .toString()),
               viewModel.isBusy
                   ? SizedBox(
                       height: MediaQuery.of(context).size.height,
@@ -84,24 +90,6 @@ class UsersView extends StackedView<UsersViewModel> {
             return UserWidget(
                 user: item, onTap: () => viewModel.selectAndReturn(item));
           }),
-    );
-  }
-
-  emptyView() {
-    return Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          AppText.headingThree(
-            allTranslations.text("users_list_no_data_title").toString(),
-          ),
-          verticalSpaceSmall,
-          AppText.body(
-            allTranslations.text("users_list_no_data_desc").toString(),
-          ),
-        ],
-      ),
     );
   }
 }

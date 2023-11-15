@@ -14,6 +14,7 @@ import 'package:shop_it/services/api/api_service.dart' as _i9;
 import 'package:shop_it/services/auth_service.dart' as _i11;
 import 'package:shop_it/services/environment_service.dart' as _i8;
 import 'package:shop_it/services/local_storage_service.dart' as _i10;
+import 'package:shop_it/services/shop_products_service.dart' as _i13;
 import 'package:shop_it/services/users_service.dart' as _i12;
 import 'package:stacked_services/stacked_services.dart' as _i4;
 
@@ -48,8 +49,19 @@ class _FakeUsersResponse_1 extends _i1.SmartFake implements _i2.UsersResponse {
         );
 }
 
-class _FakeLogger_2 extends _i1.SmartFake implements _i3.Logger {
-  _FakeLogger_2(
+class _FakeProductsResponse_2 extends _i1.SmartFake
+    implements _i2.ProductsResponse {
+  _FakeProductsResponse_2(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeLogger_3 extends _i1.SmartFake implements _i3.Logger {
+  _FakeLogger_3(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -781,6 +793,55 @@ class MockApiService extends _i1.Mock implements _i9.ApiService {
           ),
         )),
       ) as _i6.Future<_i2.UsersResponse>);
+
+  @override
+  _i6.Future<_i2.ProductsResponse> getProducts() => (super.noSuchMethod(
+        Invocation.method(
+          #getProducts,
+          [],
+        ),
+        returnValue:
+            _i6.Future<_i2.ProductsResponse>.value(_FakeProductsResponse_2(
+          this,
+          Invocation.method(
+            #getProducts,
+            [],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i6.Future<_i2.ProductsResponse>.value(_FakeProductsResponse_2(
+          this,
+          Invocation.method(
+            #getProducts,
+            [],
+          ),
+        )),
+      ) as _i6.Future<_i2.ProductsResponse>);
+
+  @override
+  _i6.Future<_i2.ProductsResponse> searchProducts(String? query) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #searchProducts,
+          [query],
+        ),
+        returnValue:
+            _i6.Future<_i2.ProductsResponse>.value(_FakeProductsResponse_2(
+          this,
+          Invocation.method(
+            #searchProducts,
+            [query],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i6.Future<_i2.ProductsResponse>.value(_FakeProductsResponse_2(
+          this,
+          Invocation.method(
+            #searchProducts,
+            [query],
+          ),
+        )),
+      ) as _i6.Future<_i2.ProductsResponse>);
 }
 
 /// A class which mocks [LocalStorageService].
@@ -824,11 +885,11 @@ class MockAuthService extends _i1.Mock implements _i11.AuthService {
   @override
   _i3.Logger get log => (super.noSuchMethod(
         Invocation.getter(#log),
-        returnValue: _FakeLogger_2(
+        returnValue: _FakeLogger_3(
           this,
           Invocation.getter(#log),
         ),
-        returnValueForMissingStub: _FakeLogger_2(
+        returnValueForMissingStub: _FakeLogger_3(
           this,
           Invocation.getter(#log),
         ),
@@ -865,11 +926,11 @@ class MockUsersService extends _i1.Mock implements _i12.UsersService {
   @override
   _i3.Logger get log => (super.noSuchMethod(
         Invocation.getter(#log),
-        returnValue: _FakeLogger_2(
+        returnValue: _FakeLogger_3(
           this,
           Invocation.getter(#log),
         ),
-        returnValueForMissingStub: _FakeLogger_2(
+        returnValueForMissingStub: _FakeLogger_3(
           this,
           Invocation.getter(#log),
         ),
@@ -896,4 +957,46 @@ class MockUsersService extends _i1.Mock implements _i12.UsersService {
         returnValueForMissingStub:
             _i6.Future<List<_i2.User>>.value(<_i2.User>[]),
       ) as _i6.Future<List<_i2.User>>);
+}
+
+/// A class which mocks [ShopProductsService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockShopProductsService extends _i1.Mock
+    implements _i13.ShopProductsService {
+  @override
+  _i3.Logger get log => (super.noSuchMethod(
+        Invocation.getter(#log),
+        returnValue: _FakeLogger_3(
+          this,
+          Invocation.getter(#log),
+        ),
+        returnValueForMissingStub: _FakeLogger_3(
+          this,
+          Invocation.getter(#log),
+        ),
+      ) as _i3.Logger);
+
+  @override
+  _i6.Future<List<_i2.Product>> getProducts() => (super.noSuchMethod(
+        Invocation.method(
+          #getProducts,
+          [],
+        ),
+        returnValue: _i6.Future<List<_i2.Product>>.value(<_i2.Product>[]),
+        returnValueForMissingStub:
+            _i6.Future<List<_i2.Product>>.value(<_i2.Product>[]),
+      ) as _i6.Future<List<_i2.Product>>);
+
+  @override
+  _i6.Future<List<_i2.Product>> searchProducts(String? query) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #searchProducts,
+          [query],
+        ),
+        returnValue: _i6.Future<List<_i2.Product>>.value(<_i2.Product>[]),
+        returnValueForMissingStub:
+            _i6.Future<List<_i2.Product>>.value(<_i2.Product>[]),
+      ) as _i6.Future<List<_i2.Product>>);
 }

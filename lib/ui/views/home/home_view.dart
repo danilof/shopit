@@ -91,7 +91,7 @@ class HomeView extends StackedView<HomeViewModel> {
       index: index,
       children: const [
         ProductsView(),
-        ProductsView(),
+        UserProfileView(),
         UserProfileView(),
         DesignSystemView()
       ],
