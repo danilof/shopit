@@ -4,6 +4,7 @@ import 'package:shop_it/services/auth_service.dart';
 import 'package:shop_it/services/environment_service.dart';
 import 'package:shop_it/services/local_storage_service.dart';
 import 'package:shop_it/services/shop_products_service.dart';
+import 'package:shop_it/services/shopping_cart_service.dart';
 import 'package:shop_it/services/users_service.dart';
 import 'package:shop_it/ui/common/design_system/design_system_view.dart';
 import 'package:shop_it/ui/common/info_alert/info_alert_dialog.dart';
@@ -36,7 +37,7 @@ import 'package:stacked_services/stacked_services.dart';
   LazySingleton(classType: AuthService),
   LazySingleton(classType: UsersService),
   LazySingleton(classType: ShopProductsService),
-
+  LazySingleton(classType: ShoppingCartService),
 // @stacked-service
 ], bottomsheets: [
   StackedBottomsheet(classType: NoticeSheet)

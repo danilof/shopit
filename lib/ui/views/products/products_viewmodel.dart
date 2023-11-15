@@ -1,9 +1,11 @@
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shop_it/app/app.bottomsheets.dart';
 import 'package:shop_it/app/app.locator.dart';
 import 'package:shop_it/app/app.logger.dart';
 import 'package:shop_it/app/localization/all_translations.dart';
 import 'package:shop_it/models/models.dart';
 import 'package:shop_it/services/shop_products_service.dart';
+import 'package:shop_it/ui/common/design_system/app_colors.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -69,5 +71,11 @@ class ProductsViewModel extends BaseViewModel {
 
   addToCart(Product item) {
     log.i("Add to cart product with id: ${item.title}");
+    Fluttertoast.showToast(
+        gravity: ToastGravity.TOP,
+        backgroundColor: kcPrimaryColorGreen,
+        msg: allTranslations
+            .textWithArgs("notice_product_added", "product", item.title)
+            .toString());
   }
 }

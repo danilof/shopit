@@ -10,21 +10,23 @@ class EnvironmentService {
     'ENVIRONMENT',
     defaultValue: kEnvDevelopment,
   );
-  static const String baseUrl = String.fromEnvironment('BASE_URL');
+  static const String baseUrl =
+      String.fromEnvironment('BASE_URL', defaultValue: "https://dummyjson.com");
 
   static const bool translationHelperActive =
-      bool.fromEnvironment('TRANSLATION_HELPER_ACTIVE', defaultValue: true);
+      bool.fromEnvironment('TRANSLATION_HELPER_ACTIVE', defaultValue: false);
   static const bool apiLoggerRequestEnabled =
-      bool.fromEnvironment('API_LOGGER_REQUEST_ENABLED', defaultValue: true);
+      bool.fromEnvironment('API_LOGGER_REQUEST_ENABLED', defaultValue: false);
   static const bool apiLoggerResponseEnabled =
-      bool.fromEnvironment('API_LOGGER_RESPONSE_ENABLED', defaultValue: true);
-  static const bool apiLoggerCurlEnabled =
-      bool.fromEnvironment('API_LOGGER_CURL_ENABLED', defaultValue: true);
+      bool.fromEnvironment('API_LOGGER_RESPONSE_ENABLED', defaultValue: false);
   static const bool useFakeApi =
       bool.fromEnvironment('USE_FAKE_API', defaultValue: false);
+
   static bool get isDevelopment =>
       currentEnvironment == Environment.development;
+
   static bool get isProduction => currentEnvironment == Environment.production;
+
   static bool get isStaging => currentEnvironment == Environment.staging;
 
   static Environment get currentEnvironment {

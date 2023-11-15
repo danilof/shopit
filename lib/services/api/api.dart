@@ -10,4 +10,6 @@ abstract class Api {
   Future<ProductsResponse> getProducts();
 
   Future<ProductsResponse> searchProducts(String query);
+
+  Future<CartsResponse> getCartsForUser(int userId);
 }

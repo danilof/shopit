@@ -88,6 +88,51 @@ class Product with _$Product, SerializeJson {
       _$ProductFromJson(json);
 }
 
+@freezed
+class CartsResponse with _$CartsResponse, SerializeJson {
+  CartsResponse._();
+
+  factory CartsResponse(
+      {required List<Cart> carts,
+      required int total,
+      required int skip,
+      required int limit}) = _CartsResponse;
+
+  factory CartsResponse.fromJson(Map<String, dynamic> json) =>
+      _$CartsResponseFromJson(json);
+}
+
+@freezed
+class Cart with _$Cart, SerializeJson {
+  Cart._();
+
+  factory Cart(
+      {required int id,
+      required int total,
+      required double discountedTotal,
+      required int totalProducts,
+      required int totalQuantity,
+      required List<CartProduct> products}) = _Cart;
+
+  factory Cart.fromJson(Map<String, dynamic> json) => _$CartFromJson(json);
+}
+
+@freezed
+class CartProduct with _$CartProduct, SerializeJson {
+  CartProduct._();
+
+  factory CartProduct(
+      {required int id,
+      required String title,
+      required double price,
+      required double discountPercentage,
+      required double discountedPrice,
+      required String thumbnail}) = _CartProduct;
+
+  factory CartProduct.fromJson(Map<String, dynamic> json) =>
+      _$CartProductFromJson(json);
+}
+
 mixin SerializeJson {
   Map<String, dynamic> toJson();
 }

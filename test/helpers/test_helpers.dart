@@ -9,6 +9,7 @@ import 'package:shop_it/services/shop_products_service.dart';
 import 'package:shop_it/services/users_service.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import 'package:shop_it/services/shopping_cart_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -23,6 +24,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<AuthService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<UsersService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<ShopProductsService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<ShoppingCartService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -35,6 +37,7 @@ void registerServices() {
   getAndRegisterUserService();
   getAndRegisterUsersService();
   getAndRegisterShopProductsService();
+  getAndRegisterShoppingCartService();
 // @stacked-mock-register
 }
 
@@ -130,6 +133,12 @@ MockShopProductsService getAndRegisterShopProductsService() {
   return service;
 }
 
+MockShoppingCartService getAndRegisterShoppingCartService() {
+  _removeRegistrationIfExists<ShoppingCartService>();
+  final service = MockShoppingCartService();
+  locator.registerSingleton<ShoppingCartService>(service);
+  return service;
+}
 // @stacked-mock-create
 
 void _removeRegistrationIfExists<T extends Object>() {

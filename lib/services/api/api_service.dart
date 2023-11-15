@@ -39,4 +39,8 @@ abstract class ApiService implements Api {
   @override
   @GET("/products/search?q={q}")
   Future<ProductsResponse> searchProducts(@Path("q") String query);
+
+  @override
+  @GET("/carts/user/{user_id}")
+  Future<CartsResponse> getCartsForUser(@Path("user_id") int userId);
 }

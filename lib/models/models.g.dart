@@ -119,3 +119,62 @@ Map<String, dynamic> _$$ProductImplToJson(_$ProductImpl instance) =>
       'thumbnail': instance.thumbnail,
       'images': instance.images,
     };
+
+_$CartsResponseImpl _$$CartsResponseImplFromJson(Map<String, dynamic> json) =>
+    _$CartsResponseImpl(
+      carts: (json['carts'] as List<dynamic>)
+          .map((e) => Cart.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      total: json['total'] as int,
+      skip: json['skip'] as int,
+      limit: json['limit'] as int,
+    );
+
+Map<String, dynamic> _$$CartsResponseImplToJson(_$CartsResponseImpl instance) =>
+    <String, dynamic>{
+      'carts': instance.carts,
+      'total': instance.total,
+      'skip': instance.skip,
+      'limit': instance.limit,
+    };
+
+_$CartImpl _$$CartImplFromJson(Map<String, dynamic> json) => _$CartImpl(
+      id: json['id'] as int,
+      total: json['total'] as int,
+      discountedTotal: (json['discountedTotal'] as num).toDouble(),
+      totalProducts: json['totalProducts'] as int,
+      totalQuantity: json['totalQuantity'] as int,
+      products: (json['products'] as List<dynamic>)
+          .map((e) => CartProduct.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$CartImplToJson(_$CartImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'total': instance.total,
+      'discountedTotal': instance.discountedTotal,
+      'totalProducts': instance.totalProducts,
+      'totalQuantity': instance.totalQuantity,
+      'products': instance.products,
+    };
+
+_$CartProductImpl _$$CartProductImplFromJson(Map<String, dynamic> json) =>
+    _$CartProductImpl(
+      id: json['id'] as int,
+      title: json['title'] as String,
+      price: (json['price'] as num).toDouble(),
+      discountPercentage: (json['discountPercentage'] as num).toDouble(),
+      discountedPrice: (json['discountedPrice'] as num).toDouble(),
+      thumbnail: json['thumbnail'] as String,
+    );
+
+Map<String, dynamic> _$$CartProductImplToJson(_$CartProductImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'price': instance.price,
+      'discountPercentage': instance.discountPercentage,
+      'discountedPrice': instance.discountedPrice,
+      'thumbnail': instance.thumbnail,
+    };

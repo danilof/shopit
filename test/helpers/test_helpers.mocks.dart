@@ -15,6 +15,7 @@ import 'package:shop_it/services/auth_service.dart' as _i11;
 import 'package:shop_it/services/environment_service.dart' as _i8;
 import 'package:shop_it/services/local_storage_service.dart' as _i10;
 import 'package:shop_it/services/shop_products_service.dart' as _i13;
+import 'package:shop_it/services/shopping_cart_service.dart' as _i14;
 import 'package:shop_it/services/users_service.dart' as _i12;
 import 'package:stacked_services/stacked_services.dart' as _i4;
 
@@ -60,8 +61,18 @@ class _FakeProductsResponse_2 extends _i1.SmartFake
         );
 }
 
-class _FakeLogger_3 extends _i1.SmartFake implements _i3.Logger {
-  _FakeLogger_3(
+class _FakeCartsResponse_3 extends _i1.SmartFake implements _i2.CartsResponse {
+  _FakeCartsResponse_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeLogger_4 extends _i1.SmartFake implements _i3.Logger {
+  _FakeLogger_4(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -842,6 +853,30 @@ class MockApiService extends _i1.Mock implements _i9.ApiService {
           ),
         )),
       ) as _i6.Future<_i2.ProductsResponse>);
+
+  @override
+  _i6.Future<_i2.CartsResponse> getCartsForUser(int? userId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getCartsForUser,
+          [userId],
+        ),
+        returnValue: _i6.Future<_i2.CartsResponse>.value(_FakeCartsResponse_3(
+          this,
+          Invocation.method(
+            #getCartsForUser,
+            [userId],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i6.Future<_i2.CartsResponse>.value(_FakeCartsResponse_3(
+          this,
+          Invocation.method(
+            #getCartsForUser,
+            [userId],
+          ),
+        )),
+      ) as _i6.Future<_i2.CartsResponse>);
 }
 
 /// A class which mocks [LocalStorageService].
@@ -885,11 +920,11 @@ class MockAuthService extends _i1.Mock implements _i11.AuthService {
   @override
   _i3.Logger get log => (super.noSuchMethod(
         Invocation.getter(#log),
-        returnValue: _FakeLogger_3(
+        returnValue: _FakeLogger_4(
           this,
           Invocation.getter(#log),
         ),
-        returnValueForMissingStub: _FakeLogger_3(
+        returnValueForMissingStub: _FakeLogger_4(
           this,
           Invocation.getter(#log),
         ),
@@ -926,11 +961,11 @@ class MockUsersService extends _i1.Mock implements _i12.UsersService {
   @override
   _i3.Logger get log => (super.noSuchMethod(
         Invocation.getter(#log),
-        returnValue: _FakeLogger_3(
+        returnValue: _FakeLogger_4(
           this,
           Invocation.getter(#log),
         ),
-        returnValueForMissingStub: _FakeLogger_3(
+        returnValueForMissingStub: _FakeLogger_4(
           this,
           Invocation.getter(#log),
         ),
@@ -967,11 +1002,11 @@ class MockShopProductsService extends _i1.Mock
   @override
   _i3.Logger get log => (super.noSuchMethod(
         Invocation.getter(#log),
-        returnValue: _FakeLogger_3(
+        returnValue: _FakeLogger_4(
           this,
           Invocation.getter(#log),
         ),
-        returnValueForMissingStub: _FakeLogger_3(
+        returnValueForMissingStub: _FakeLogger_4(
           this,
           Invocation.getter(#log),
         ),
@@ -999,4 +1034,84 @@ class MockShopProductsService extends _i1.Mock
         returnValueForMissingStub:
             _i6.Future<List<_i2.Product>>.value(<_i2.Product>[]),
       ) as _i6.Future<List<_i2.Product>>);
+}
+
+/// A class which mocks [ShoppingCartService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockShoppingCartService extends _i1.Mock
+    implements _i14.ShoppingCartService {
+  @override
+  _i3.Logger get log => (super.noSuchMethod(
+        Invocation.getter(#log),
+        returnValue: _FakeLogger_4(
+          this,
+          Invocation.getter(#log),
+        ),
+        returnValueForMissingStub: _FakeLogger_4(
+          this,
+          Invocation.getter(#log),
+        ),
+      ) as _i3.Logger);
+
+  @override
+  bool get hasCart => (super.noSuchMethod(
+        Invocation.getter(#hasCart),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  int get listenersCount => (super.noSuchMethod(
+        Invocation.getter(#listenersCount),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  _i6.Future<void> initUserCart() => (super.noSuchMethod(
+        Invocation.method(
+          #initUserCart,
+          [],
+        ),
+        returnValue: _i6.Future<void>.value(),
+        returnValueForMissingStub: _i6.Future<void>.value(),
+      ) as _i6.Future<void>);
+
+  @override
+  void listenToReactiveValues(List<dynamic>? reactiveValues) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #listenToReactiveValues,
+          [reactiveValues],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void addListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #addListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void removeListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #removeListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 }

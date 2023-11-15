@@ -17,6 +17,7 @@ import '../services/auth_service.dart';
 import '../services/environment_service.dart';
 import '../services/local_storage_service.dart';
 import '../services/shop_products_service.dart';
+import '../services/shopping_cart_service.dart';
 import '../services/users_service.dart';
 
 final locator = StackedLocator.instance;
@@ -42,4 +43,5 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => AuthService());
   locator.registerLazySingleton(() => UsersService());
   locator.registerLazySingleton(() => ShopProductsService());
+  locator.registerLazySingleton(() => ShoppingCartService());
 }
