@@ -73,8 +73,8 @@ class HomeView extends StackedView<HomeViewModel> {
         children: [
           Icon(Icons.shopping_cart),
           Positioned(
-            child: CartBadge(),
             right: 0,
+            child: CartBadge(),
           ),
         ],
       ),
