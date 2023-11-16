@@ -11,6 +11,7 @@ import 'package:shop_it/ui/common/info_alert/info_alert_dialog.dart';
 import 'package:shop_it/ui/common/notice/notice_sheet.dart';
 import 'package:shop_it/ui/views/home/home_view.dart';
 import 'package:shop_it/ui/views/login/login_view.dart';
+import 'package:shop_it/ui/views/product_detail/product_detail_view.dart';
 import 'package:shop_it/ui/views/products/products_view.dart';
 import 'package:shop_it/ui/views/shopping_cart/shopping_cart_view.dart';
 import 'package:shop_it/ui/views/startup/startup_view.dart';
@@ -28,6 +29,7 @@ import 'package:stacked_services/stacked_services.dart';
   MaterialRoute(page: UsersView),
   MaterialRoute(page: UserProfileView),
   MaterialRoute(page: ShoppingCartView),
+  MaterialRoute(page: ProductDetailView),
 // @stacked-route
 ], dependencies: [
   LazySingleton(classType: BottomSheetService),
