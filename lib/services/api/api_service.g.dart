@@ -120,7 +120,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              '/products',
+              '/products?limit=0',
               queryParameters: queryParameters,
               data: _data,
             )

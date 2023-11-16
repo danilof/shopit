@@ -33,7 +33,7 @@ abstract class ApiService implements Api {
   Future<UsersResponse> searchUsers(@Path("q") String query);
 
   @override
-  @GET("/products")
+  @GET("/products?limit=0")
   Future<ProductsResponse> getProducts();
 
   @override
