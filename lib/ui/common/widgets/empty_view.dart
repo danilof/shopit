@@ -21,6 +21,7 @@ class EmptyView extends StatelessWidget {
           verticalSpaceSmall,
           AppText.body(
             description,
+            textOverflow: TextOverflow.visible,
           ),
         ],
       ),

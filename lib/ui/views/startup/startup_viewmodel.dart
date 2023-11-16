@@ -17,8 +17,6 @@ class StartupViewModel extends BaseViewModel {
     try {
       log.i("init user service");
       await _userService.init();
-      log.i("init users cart");
-      _shoppingCartService.initUserCart();
       _userService.currentUserExist
           ? _navigationService.replaceWithHomeView()
           : _navigationService.replaceWithLoginView();

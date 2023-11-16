@@ -1062,6 +1062,13 @@ class MockShoppingCartService extends _i1.Mock
       ) as bool);
 
   @override
+  int get total => (super.noSuchMethod(
+        Invocation.getter(#total),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
   int get listenersCount => (super.noSuchMethod(
         Invocation.getter(#listenersCount),
         returnValue: 0,
@@ -1077,6 +1084,42 @@ class MockShoppingCartService extends _i1.Mock
         returnValue: _i6.Future<void>.value(),
         returnValueForMissingStub: _i6.Future<void>.value(),
       ) as _i6.Future<void>);
+
+  @override
+  void addProduct(_i2.Product? item) => super.noSuchMethod(
+        Invocation.method(
+          #addProduct,
+          [item],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void removeProduct(int? productId) => super.noSuchMethod(
+        Invocation.method(
+          #removeProduct,
+          [productId],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void productReduceQuantity(int? productId) => super.noSuchMethod(
+        Invocation.method(
+          #productReduceQuantity,
+          [productId],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void productAddToQuantity(int? productId) => super.noSuchMethod(
+        Invocation.method(
+          #productAddToQuantity,
+          [productId],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void listenToReactiveValues(List<dynamic>? reactiveValues) =>

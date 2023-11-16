@@ -4,7 +4,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shop_it/app/localization/all_translations.dart';
 import 'package:shop_it/services/environment_service.dart';
 import 'package:shop_it/ui/common/design_system/design_system_view.dart';
+import 'package:shop_it/ui/common/smart_widgets/cart_badge.dart';
 import 'package:shop_it/ui/views/products/products_view.dart';
+import 'package:shop_it/ui/views/shopping_cart/shopping_cart_view.dart';
 import 'package:shop_it/ui/views/user_profile/user_profile_view.dart';
 import 'package:stacked/stacked.dart';
 
@@ -67,7 +69,15 @@ class HomeView extends StackedView<HomeViewModel> {
         icon: const Icon(Icons.list)));
     menuItems.add(BottomNavigationBarItem(
       label: allTranslations.text("label_menu_cart"),
-      icon: const Icon(Icons.shopping_cart),
+      icon: const Stack(
+        children: [
+          Icon(Icons.shopping_cart),
+          Positioned(
+            child: CartBadge(),
+            right: 0,
+          ),
+        ],
+      ),
     ));
     menuItems.add(
       BottomNavigationBarItem(
@@ -91,7 +101,7 @@ class HomeView extends StackedView<HomeViewModel> {
       index: index,
       children: const [
         ProductsView(),
-        UserProfileView(),
+        ShoppingCartView(),
         UserProfileView(),
         DesignSystemView()
       ],

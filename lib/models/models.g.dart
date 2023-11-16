@@ -94,7 +94,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int,
       title: json['title'] as String,
       description: json['description'] as String,
-      price: json['price'] as int,
+      price: (json['price'] as num).toDouble(),
       discountPercentage: (json['discountPercentage'] as num).toDouble(),
       rating: (json['rating'] as num).toDouble(),
       stock: json['stock'] as int,
@@ -166,6 +166,7 @@ _$CartProductImpl _$$CartProductImplFromJson(Map<String, dynamic> json) =>
       price: (json['price'] as num).toDouble(),
       discountPercentage: (json['discountPercentage'] as num).toDouble(),
       discountedPrice: (json['discountedPrice'] as num).toDouble(),
+      quantity: json['quantity'] as int,
       thumbnail: json['thumbnail'] as String,
     );
 
@@ -176,5 +177,6 @@ Map<String, dynamic> _$$CartProductImplToJson(_$CartProductImpl instance) =>
       'price': instance.price,
       'discountPercentage': instance.discountPercentage,
       'discountedPrice': instance.discountedPrice,
+      'quantity': instance.quantity,
       'thumbnail': instance.thumbnail,
     };

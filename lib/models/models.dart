@@ -75,7 +75,7 @@ class Product with _$Product, SerializeJson {
       {required int id,
       required String title,
       required String description,
-      required int price,
+      required double price,
       required double discountPercentage,
       required double rating,
       required int stock,
@@ -102,7 +102,7 @@ class CartsResponse with _$CartsResponse, SerializeJson {
       _$CartsResponseFromJson(json);
 }
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class Cart with _$Cart, SerializeJson {
   Cart._();
 
@@ -115,6 +115,16 @@ class Cart with _$Cart, SerializeJson {
       required List<CartProduct> products}) = _Cart;
 
   factory Cart.fromJson(Map<String, dynamic> json) => _$CartFromJson(json);
+
+  factory Cart.empty() {
+    return Cart(
+        id: 0,
+        total: 0,
+        discountedTotal: 0,
+        totalProducts: 0,
+        totalQuantity: 0,
+        products: []);
+  }
 }
 
 @freezed
@@ -127,10 +137,23 @@ class CartProduct with _$CartProduct, SerializeJson {
       required double price,
       required double discountPercentage,
       required double discountedPrice,
+      required int quantity,
       required String thumbnail}) = _CartProduct;
 
   factory CartProduct.fromJson(Map<String, dynamic> json) =>
       _$CartProductFromJson(json);
+
+  factory CartProduct.fromProduct(Product product, int quantity) {
+    return CartProduct(
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        discountPercentage: product.discountPercentage,
+        quantity: quantity,
+        thumbnail: product.thumbnail,
+        discountedPrice:
+            product.price - product.price * (product.discountPercentage / 100));
+  }
 }
 
 mixin SerializeJson {

@@ -20,7 +20,8 @@ class UserProfileView extends StackedView<UserProfileViewModel> {
         body: SafeArea(
       child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             verticalSpaceLarge,
             CircleAvatar(

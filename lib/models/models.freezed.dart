@@ -975,7 +975,7 @@ mixin _$Product {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  int get price => throw _privateConstructorUsedError;
+  double get price => throw _privateConstructorUsedError;
   double get discountPercentage => throw _privateConstructorUsedError;
   double get rating => throw _privateConstructorUsedError;
   int get stock => throw _privateConstructorUsedError;
@@ -998,7 +998,7 @@ abstract class $ProductCopyWith<$Res> {
       {int id,
       String title,
       String description,
-      int price,
+      double price,
       double discountPercentage,
       double rating,
       int stock,
@@ -1049,7 +1049,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       discountPercentage: null == discountPercentage
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
@@ -1093,7 +1093,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       {int id,
       String title,
       String description,
-      int price,
+      double price,
       double discountPercentage,
       double rating,
       int stock,
@@ -1142,7 +1142,7 @@ class __$$ProductImplCopyWithImpl<$Res>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       discountPercentage: null == discountPercentage
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
@@ -1203,7 +1203,7 @@ class _$ProductImpl extends _Product {
   @override
   final String description;
   @override
-  final int price;
+  final double price;
   @override
   final double discountPercentage;
   @override
@@ -1286,7 +1286,7 @@ abstract class _Product extends Product {
       {required final int id,
       required final String title,
       required final String description,
-      required final int price,
+      required final double price,
       required final double discountPercentage,
       required final double rating,
       required final int stock,
@@ -1305,7 +1305,7 @@ abstract class _Product extends Product {
   @override
   String get description;
   @override
-  int get price;
+  double get price;
   @override
   double get discountPercentage;
   @override
@@ -1664,7 +1664,7 @@ class __$$CartImplCopyWithImpl<$Res>
           : totalQuantity // ignore: cast_nullable_to_non_nullable
               as int,
       products: null == products
-          ? _value._products
+          ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
               as List<CartProduct>,
     ));
@@ -1680,9 +1680,8 @@ class _$CartImpl extends _Cart {
       required this.discountedTotal,
       required this.totalProducts,
       required this.totalQuantity,
-      required final List<CartProduct> products})
-      : _products = products,
-        super._();
+      required this.products})
+      : super._();
 
   factory _$CartImpl.fromJson(Map<String, dynamic> json) =>
       _$$CartImplFromJson(json);
@@ -1697,13 +1696,8 @@ class _$CartImpl extends _Cart {
   final int totalProducts;
   @override
   final int totalQuantity;
-  final List<CartProduct> _products;
   @override
-  List<CartProduct> get products {
-    if (_products is EqualUnmodifiableListView) return _products;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_products);
-  }
+  final List<CartProduct> products;
 
   @override
   String toString() {
@@ -1723,7 +1717,7 @@ class _$CartImpl extends _Cart {
                 other.totalProducts == totalProducts) &&
             (identical(other.totalQuantity, totalQuantity) ||
                 other.totalQuantity == totalQuantity) &&
-            const DeepCollectionEquality().equals(other._products, _products));
+            const DeepCollectionEquality().equals(other.products, products));
   }
 
   @JsonKey(ignore: true)
@@ -1735,7 +1729,7 @@ class _$CartImpl extends _Cart {
       discountedTotal,
       totalProducts,
       totalQuantity,
-      const DeepCollectionEquality().hash(_products));
+      const DeepCollectionEquality().hash(products));
 
   @JsonKey(ignore: true)
   @override
@@ -1792,6 +1786,7 @@ mixin _$CartProduct {
   double get price => throw _privateConstructorUsedError;
   double get discountPercentage => throw _privateConstructorUsedError;
   double get discountedPrice => throw _privateConstructorUsedError;
+  int get quantity => throw _privateConstructorUsedError;
   String get thumbnail => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1812,6 +1807,7 @@ abstract class $CartProductCopyWith<$Res> {
       double price,
       double discountPercentage,
       double discountedPrice,
+      int quantity,
       String thumbnail});
 }
 
@@ -1833,6 +1829,7 @@ class _$CartProductCopyWithImpl<$Res, $Val extends CartProduct>
     Object? price = null,
     Object? discountPercentage = null,
     Object? discountedPrice = null,
+    Object? quantity = null,
     Object? thumbnail = null,
   }) {
     return _then(_value.copyWith(
@@ -1856,6 +1853,10 @@ class _$CartProductCopyWithImpl<$Res, $Val extends CartProduct>
           ? _value.discountedPrice
           : discountedPrice // ignore: cast_nullable_to_non_nullable
               as double,
+      quantity: null == quantity
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -1878,6 +1879,7 @@ abstract class _$$CartProductImplCopyWith<$Res>
       double price,
       double discountPercentage,
       double discountedPrice,
+      int quantity,
       String thumbnail});
 }
 
@@ -1897,6 +1899,7 @@ class __$$CartProductImplCopyWithImpl<$Res>
     Object? price = null,
     Object? discountPercentage = null,
     Object? discountedPrice = null,
+    Object? quantity = null,
     Object? thumbnail = null,
   }) {
     return _then(_$CartProductImpl(
@@ -1920,6 +1923,10 @@ class __$$CartProductImplCopyWithImpl<$Res>
           ? _value.discountedPrice
           : discountedPrice // ignore: cast_nullable_to_non_nullable
               as double,
+      quantity: null == quantity
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -1937,6 +1944,7 @@ class _$CartProductImpl extends _CartProduct {
       required this.price,
       required this.discountPercentage,
       required this.discountedPrice,
+      required this.quantity,
       required this.thumbnail})
       : super._();
 
@@ -1954,11 +1962,13 @@ class _$CartProductImpl extends _CartProduct {
   @override
   final double discountedPrice;
   @override
+  final int quantity;
+  @override
   final String thumbnail;
 
   @override
   String toString() {
-    return 'CartProduct(id: $id, title: $title, price: $price, discountPercentage: $discountPercentage, discountedPrice: $discountedPrice, thumbnail: $thumbnail)';
+    return 'CartProduct(id: $id, title: $title, price: $price, discountPercentage: $discountPercentage, discountedPrice: $discountedPrice, quantity: $quantity, thumbnail: $thumbnail)';
   }
 
   @override
@@ -1973,6 +1983,8 @@ class _$CartProductImpl extends _CartProduct {
                 other.discountPercentage == discountPercentage) &&
             (identical(other.discountedPrice, discountedPrice) ||
                 other.discountedPrice == discountedPrice) &&
+            (identical(other.quantity, quantity) ||
+                other.quantity == quantity) &&
             (identical(other.thumbnail, thumbnail) ||
                 other.thumbnail == thumbnail));
   }
@@ -1980,7 +1992,7 @@ class _$CartProductImpl extends _CartProduct {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, title, price,
-      discountPercentage, discountedPrice, thumbnail);
+      discountPercentage, discountedPrice, quantity, thumbnail);
 
   @JsonKey(ignore: true)
   @override
@@ -2003,6 +2015,7 @@ abstract class _CartProduct extends CartProduct {
       required final double price,
       required final double discountPercentage,
       required final double discountedPrice,
+      required final int quantity,
       required final String thumbnail}) = _$CartProductImpl;
   _CartProduct._() : super._();
 
@@ -2019,6 +2032,8 @@ abstract class _CartProduct extends CartProduct {
   double get discountPercentage;
   @override
   double get discountedPrice;
+  @override
+  int get quantity;
   @override
   String get thumbnail;
   @override

@@ -2,9 +2,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shop_it/app/app.bottomsheets.dart';
 import 'package:shop_it/app/app.locator.dart';
 import 'package:shop_it/app/app.logger.dart';
+import 'package:shop_it/app/app.router.dart';
 import 'package:shop_it/app/localization/all_translations.dart';
 import 'package:shop_it/models/models.dart';
 import 'package:shop_it/services/shop_products_service.dart';
+import 'package:shop_it/services/shopping_cart_service.dart';
 import 'package:shop_it/ui/common/design_system/app_colors.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -14,6 +16,7 @@ class ProductsViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   final _productsService = locator<ShopProductsService>();
   final _sheetService = locator<BottomSheetService>();
+  final _shoppingCartService = locator<ShoppingCartService>();
 
   bool _isListModeActive = false;
 
@@ -44,7 +47,7 @@ class ProductsViewModel extends BaseViewModel {
 
   goToSelectedProduct(Product item) {
     log.i("go to product with id: ${item.id}");
-    //_navigationService.navi.back(result: item);
+    _navigationService.navigateToProductDetailView(product: item);
   }
 
   searchProducts(String query) async {
@@ -71,9 +74,13 @@ class ProductsViewModel extends BaseViewModel {
 
   addToCart(Product item) {
     log.i("Add to cart product with id: ${item.title}");
+
+    _shoppingCartService.addProduct(item);
+
     Fluttertoast.showToast(
         gravity: ToastGravity.TOP,
         backgroundColor: kcPrimaryColorGreen,
+        fontSize: 15,
         msg: allTranslations
             .textWithArgs("notice_product_added", "product", item.title)
             .toString());
