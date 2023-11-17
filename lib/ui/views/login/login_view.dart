@@ -18,38 +18,43 @@ class LoginView extends StackedView<LoginViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              "assets/logo.svg",
-              width: 200,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  "assets/logo.svg",
+                  width: 200,
+                ),
+                verticalSpaceSmall,
+                AppText.headline(
+                    allTranslations.text("label_app_name").toString()),
+                verticalSpaceLarge,
+                AppButton.selectable(
+                    title: viewModel.selectedUser != null
+                        ? allTranslations.text("label_selected_user").toString()
+                        : allTranslations.text("label_select_user").toString(),
+                    subTitle: viewModel.selectedUser != null
+                        ? "${viewModel.selectedUser!.firstName} ${viewModel.selectedUser!.lastName}"
+                        : allTranslations.text("label_no_user_selected"),
+                    validatorText: viewModel.selectedUser != null
+                        ? ""
+                        : viewModel.selectedUserValidator,
+                    onTap: () async {
+                      await viewModel.selectUser();
+                    }),
+                verticalSpaceMedium,
+                AppButton.colored(
+                  title: allTranslations.text("action_login").toString(),
+                  onTap: viewModel.login,
+                  busy: viewModel.isBusy,
+                ),
+              ],
             ),
-            verticalSpaceSmall,
-            AppText.headline(allTranslations.text("label_app_name").toString()),
-            verticalSpaceLarge,
-            AppButton.selectable(
-                title: viewModel.selectedUser != null
-                    ? allTranslations.text("label_selected_user").toString()
-                    : allTranslations.text("label_select_user").toString(),
-                subTitle: viewModel.selectedUser != null
-                    ? "${viewModel.selectedUser!.firstName} ${viewModel.selectedUser!.lastName}"
-                    : allTranslations.text("label_no_user_selected"),
-                validatorText: viewModel.selectedUser != null
-                    ? ""
-                    : viewModel.selectedUserValidator,
-                onTap: () async {
-                  await viewModel.selectUser();
-                }),
-            verticalSpaceMedium,
-            AppButton.colored(
-              title: allTranslations.text("action_login").toString(),
-              onTap: viewModel.login,
-              busy: viewModel.isBusy,
-            ),
-          ],
+          ),
         ),
       ),
     );

@@ -24,18 +24,18 @@ class ProductItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.only(left: 6.0, top: 12),
+        padding: EdgeInsets.only(left: isList ? 3.0 : 6.0, top: 12),
         child: Stack(
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 140,
+                Flexible(
                   child: ExtendedImage.network(
                     product.thumbnail,
                     width: double.infinity,
+                    height: double.infinity,
                     fit: BoxFit.cover,
                     cache: true,
                     loadStateChanged: (ExtendedImageState value) {

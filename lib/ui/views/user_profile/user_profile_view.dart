@@ -18,35 +18,37 @@ class UserProfileView extends StackedView<UserProfileViewModel> {
   ) {
     return Scaffold(
         body: SafeArea(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            verticalSpaceLarge,
-            CircleAvatar(
-              backgroundImage: NetworkImage(viewModel.currentUser.image),
-              minRadius: 60,
-              maxRadius: 60,
-            ),
-            verticalSpaceSmall,
-            AppText.headingOne(
-                "${viewModel.currentUser.firstName} ${viewModel.currentUser.lastName}"),
-            AppText.body(viewModel.currentUser.email),
-            verticalSpaceLarge,
-            SizedBox(
-              width: screenWidth(context) / 2,
-              child: AppButton.outline(
-                color: Colors.orange,
-                leading: const Icon(
-                  Icons.logout,
-                  color: Colors.orange,
-                ),
-                title: allTranslations.text("action_logout").toString(),
-                onTap: viewModel.logout,
+      child: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              verticalSpaceLarge,
+              CircleAvatar(
+                backgroundImage: NetworkImage(viewModel.currentUser.image),
+                minRadius: 60,
+                maxRadius: 60,
               ),
-            ),
-          ],
+              verticalSpaceSmall,
+              AppText.headingOne(
+                  "${viewModel.currentUser.firstName} ${viewModel.currentUser.lastName}"),
+              AppText.body(viewModel.currentUser.email),
+              verticalSpaceLarge,
+              SizedBox(
+                width: screenWidth(context) / 2,
+                child: AppButton.outline(
+                  color: Colors.orange,
+                  leading: const Icon(
+                    Icons.logout,
+                    color: Colors.orange,
+                  ),
+                  title: allTranslations.text("action_logout").toString(),
+                  onTap: viewModel.logout,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     ));

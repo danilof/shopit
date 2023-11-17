@@ -26,7 +26,7 @@ class ProductGlassDetail extends StatelessWidget {
         ),
         child: Container(
           height: screenHeight(context) / 2.2,
-          width: 250,
+          width: screenWidth(context) / 1.5,
           padding: const EdgeInsets.all(8),
           color: Colors.white.withOpacity(0.2),
           child: Column(
@@ -38,10 +38,12 @@ class ProductGlassDetail extends StatelessWidget {
                 textOverflow: TextOverflow.visible,
                 color: Colors.black,
               ),
-              AppText.body(
-                product.description,
-                textOverflow: TextOverflow.visible,
-                color: Colors.black,
+              Flexible(
+                child: AppText.body(
+                  product.description,
+                  textOverflow: TextOverflow.visible,
+                  color: Colors.black,
+                ),
               ),
               verticalSpaceSmall,
               Row(
