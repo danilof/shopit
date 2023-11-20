@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:session_mate/session_mate.dart';
+import 'package:shop_it/app/app.logger.dart';
 import 'package:shop_it/ui/common/design_system/app_colors.dart';
 import 'package:shop_it/ui/common/design_system/ui_helpers.dart';
 import 'package:shop_it/ui/common/design_system/widgets/app_button.dart';
 import 'package:shop_it/ui/common/design_system/widgets/app_input_field.dart';
 import 'package:shop_it/ui/common/design_system/widgets/app_text.dart';
 
+final log = getLogger("DesignSystem");
+
 class DesignSystemView extends StatelessWidget {
   const DesignSystemView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -24,6 +30,13 @@ class DesignSystemView extends StatelessWidget {
             AppText.body(
               "Visible ONLY in development",
               color: kcMediumGreyColor,
+            ),
+            verticalSpaceMedium,
+            AppButton(
+              title: "SessionMate SAVE session",
+              onTap: () {
+                saveSession();
+              },
             ),
             verticalSpaceMedium,
             ...textWidgets,
@@ -171,4 +184,14 @@ class DesignSystemView extends StatelessWidget {
             trailing: const Icon(Icons.clear_outlined),
             placeholder: 'Search for...')
       ];
+
+  void saveSession() {
+    try {
+      log.wtf("SessionMate session saved");
+      throw Exception('Save sessionmate');
+    } catch (e, s) {
+      Fluttertoast.showToast(msg: "SessionMate session saved");
+      SessionMateUtils.saveSession(exception: e, stackTrace: s);
+    }
+  }
 }

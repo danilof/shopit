@@ -1,7 +1,11 @@
 # ShopIT
 
-App is based on Stacked Architecture
+Demo App is based on Stacked Architecture
 with the Model-View-ViewModel (MVVM) architectural pattern
+
+| Light Theme                                         | Dark Theme                                         |
+|-----------------------------------------------------|----------------------------------------------------|
+| ![products_grid](./screens/light/products_grid.jpg) | ![products_grid](./screens/dark/products_grid.jpg) |
 
 ## App has the following features:
 
@@ -22,6 +26,16 @@ with the Model-View-ViewModel (MVVM) architectural pattern
 - Build in Design system
 - Themes support (light/dark)
 - User Auto login
+- Support Session Mate (HOW TO: https://www.filledstacks.com/post/session-mate-get-started/):
+    - RUN session mate recorder:
+        1. flutter run --dart-define-from-file=assets/environments/staging.json
+           --dart-define=RECORD_SESSION=true
+        2. record user interactions
+        3. when you are done, in bottom navigation select Design Sys. and press SessionMate SAVE
+           session Button
+    - RUN session mate player - from terminal:
+        - sessionmate drive -p . --additional-commands="--debug
+          --dart-define-from-file=assets/environments/staging.json"
 
 ## Main libraries:
 
@@ -33,6 +47,3 @@ with the Model-View-ViewModel (MVVM) architectural pattern
 ## Api for demo data:
 
 https://dummyjson.com
-
-Build app with different environments:
-

@@ -1,6 +1,7 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:session_mate/session_mate.dart';
 import 'package:shop_it/app/app.bottomsheets.dart';
 import 'package:shop_it/app/app.dialogs.dart';
 import 'package:shop_it/app/app.locator.dart';
@@ -14,6 +15,10 @@ import 'package:stacked_services/stacked_services.dart';
 final log = getLogger("Main");
 
 Future<void> main() async {
+  if (!kReplaySession) {
+    WidgetsFlutterBinding.ensureInitialized();
+  }
+  await setupSessionMate();
   WidgetsFlutterBinding.ensureInitialized();
   log.i("App initialization start");
   await setupLocator();
@@ -63,7 +68,15 @@ class MainApp extends StatelessWidget {
       navigatorObservers: [
         StackedService.routeObserver,
         RouteLoggingObserver(),
+        SessionMateNavigatorObserver.instance,
       ],
+      builder: (context, child) => SessionMateBuilder(
+        minimumStartupTime: 6000,
+        verboseLogs: true,
+        inputMaskingEnabled: false,
+        dataMaskingEnabled: false,
+        child: child!,
+      ),
     );
   }
 }
