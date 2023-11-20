@@ -3,9 +3,13 @@
 Demo App is based on Stacked Architecture
 with the Model-View-ViewModel (MVVM) architectural pattern
 
-| Light Theme                                         | Dark Theme                                         |
-|-----------------------------------------------------|----------------------------------------------------|
-| ![products_grid](./screens/light/products_grid.jpg) | ![products_grid](./screens/dark/products_grid.jpg) |
+| Light Theme                                                  | Dark Theme                                                  |
+|--------------------------------------------------------------|-------------------------------------------------------------|
+| ![products_grid](./screens/light/products_grid.jpg)          | ![products_grid](./screens/dark/products_grid.jpg)          |
+| ![products_grid](./screens/light/products_list.jpg)          | ![products_grid](./screens/dark/products_list.jpg)          |
+| ![products_grid](./screens/light/products_detail.jpg)        | ![products_grid](./screens/dark/products_detail.jpg)        |
+| ![products_grid](./screens/light/products_cart.jpg)          | ![products_grid](./screens/dark/products_cart.jpg)          |
+| ![products_grid](./screens/light/products_design_system.jpg) | ![products_grid](./screens/dark/products_design_system.jpg) |
 
 ## App has the following features:
 
