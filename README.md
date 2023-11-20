@@ -51,6 +51,4 @@ with the Model-View-ViewModel (MVVM) architectural pattern
 
 https://dummyjson.com
 
-Made with ❤️
-![simfonija.co](./screens/simfonija_logo.png)
-[Simfonija.co](http://simfonija.co/ "Simfonija.co")
+Crafted with ❤️ ![simfonija.co](./screens/simfonija_logo.png)
