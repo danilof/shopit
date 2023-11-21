@@ -19,12 +19,11 @@ Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized();
   }
   await setupSessionMate();
-  WidgetsFlutterBinding.ensureInitialized();
   log.i("App initialization start");
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
-  await allTranslations.init("en");
+  await allTranslations.init("lng_en");
   SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.portraitUp,
