@@ -1,4 +1,5 @@
 {
+  "ENVIRONMENT": "Development",
   "BASE_URL": "https://dummyjson.com",
   "TRANSLATION_HELPER_ACTIVE": true,
   "API_LOGGER_REQUEST_ENABLED": true,

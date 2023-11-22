@@ -36,9 +36,76 @@ dev_dependencies:
   json_serializable: ^6.7.1
   #testing
   session_mate: ^0.7.5
+  flutter_flavorizr: ^2.2.1
+  package_info_plus: ^4.1.0
 
 flutter:
   uses-material-design: true
   assets:
     - assets/
     - locale/
+
+flavorizr:
+  ide: "idea"
+  app:
+    android:
+      flavorDimensions: "customer"
+
+  flavors:
+    DoiITShopDev:
+      app:
+        name: "DoITShop-DEV"
+
+      android:
+        applicationId: "co.doitshop.shop.dev"
+        icon: "assets/logo.png"
+        firebase:
+          config: "firebase_config/app1/dev/google-services.json"
+      ios:
+        bundleId: "co.doitshop.shop.dev"
+        icon: "assets/logo.png"
+        firebase:
+          config: "firebase_config/app1/dev/GoogleService-Info.plist"
+        buildSettings:
+          # Development Team is visible in the apple developer portal
+          DEVELOPMENT_TEAM: YOURDEVTEAMID
+          PROVISIONING_PROFILE_SPECIFIER: "Dev-ProvisioningProfile"
+        variables:
+          VARIABLE_ONE:
+            value: "variable1"
+
+    DoiITShopProd:
+      app:
+        name: "DoITShop-Prod"
+
+      android:
+        applicationId: "co.doitshop.shop.prod"
+        icon: "assets/logo.png"
+        firebase:
+          config: "firebase_config/app1/prod/google-services.json"
+      ios:
+        bundleId: "co.doitshop.shop"
+        buildSettings:
+          # Development Team is visible in the apple developer portal
+          DEVELOPMENT_TEAM: YOURDEVTEAMID
+          PROVISIONING_PROFILE_SPECIFIER: "Dev-ProvisioningProfile"
+        firebase:
+          config: "firebase_config/app1/prod/GoogleService-Info.plist"
+        variables:
+          VARIABLE_ONE:
+            value: "variable1"
+
+    ShopIT:
+      app:
+        name: "ShopIT"
+      android:
+        applicationId: "co.shopit.shop"
+        firebase:
+          config: "firebase_config/shopit/google-services.json"
+      ios:
+        bundleId: "co.shopit.shop"
+        firebase:
+          config: "firebase_config/shopit/GoogleService-Info.plist"
+        variables:
+          VARIABLE_ONE:
+            value: "variable1"

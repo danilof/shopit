@@ -1,0 +1,8 @@
+{
+  "ENVIRONMENT": "Production",
+  "BASE_URL": "https://dummyjson.com",
+  "TRANSLATION_HELPER_ACTIVE": false,
+  "API_LOGGER_REQUEST_ENABLED": false,
+  "API_LOGGER_RESPONSE_ENABLED": false,
+  "USE_FAKE_API": false
+}

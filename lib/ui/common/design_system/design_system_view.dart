@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:session_mate/session_mate.dart';
 import 'package:shop_it/app/app.logger.dart';
 import 'package:shop_it/ui/common/design_system/app_colors.dart';
@@ -10,8 +11,26 @@ import 'package:shop_it/ui/common/design_system/widgets/app_text.dart';
 
 final log = getLogger("DesignSystem");
 
-class DesignSystemView extends StatelessWidget {
+class DesignSystemView extends StatefulWidget {
   const DesignSystemView({super.key});
+
+  @override
+  State<DesignSystemView> createState() => _DesignSystemViewState();
+}
+
+class _DesignSystemViewState extends State<DesignSystemView> {
+  PackageInfo _packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    _initPackageInfo();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +50,11 @@ class DesignSystemView extends StatelessWidget {
               "Visible ONLY in development",
               color: kcMediumGreyColor,
             ),
+            verticalSpaceSmall,
+            _infoTile("App name", _packageInfo.appName),
+            _infoTile("Package name", _packageInfo.packageName),
+            _infoTile("Version", _packageInfo.version),
+            _infoTile("Build No.", _packageInfo.buildNumber),
             verticalSpaceMedium,
             AppButton(
               title: "SessionMate SAVE session",
@@ -193,5 +217,19 @@ class DesignSystemView extends StatelessWidget {
       Fluttertoast.showToast(msg: "SessionMate session saved");
       SessionMateUtils.saveSession(exception: e, stackTrace: s);
     }
+  }
+
+  Future<void> _initPackageInfo() async {
+    final info = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = info;
+    });
+  }
+
+  Widget _infoTile(String title, String subtitle) {
+    return ListTile(
+      title: Text(title),
+      subtitle: Text(subtitle.isEmpty ? 'Not set' : subtitle),
+    );
   }
 }

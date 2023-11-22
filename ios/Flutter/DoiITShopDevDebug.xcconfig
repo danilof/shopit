@@ -1,0 +1,7 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main_DoiITShopDev.dart
+ASSET_PREFIX=DoiITShopDev
+BUNDLE_NAME=DoITShop-DEV
+BUNDLE_DISPLAY_NAME=DoITShop-DEV
+VARIABLE_ONE=variable1

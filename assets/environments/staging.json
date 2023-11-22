@@ -1,4 +1,5 @@
 {
+  "ENVIRONMENT": "Staging",
   "BASE_URL": "https://dummyjson.com",
   "TRANSLATION_HELPER_ACTIVE": false,
   "API_LOGGER_REQUEST_ENABLED": false,

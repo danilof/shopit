@@ -1,0 +1,65 @@
+flavorizr:
+  ide: "idea"
+  app:
+    android:
+      flavorDimensions: "customer"
+    ios:
+
+  flavors:
+    DoiITShopDev:
+      app:
+        name: "DoITShop-DEV"
+
+      android:
+        applicationId: "co.doitshop.shop.dev"
+        icon: "assets/logo.svg"
+      ios:
+        bundleId: "co.doitshop.shop.dev"
+        icon: "assets/logo"
+        buildSettings:
+          # Development Team is visible in the apple developer portal
+          DEVELOPMENT_TEAM: YOURDEVTEAMID
+          PROVISIONING_PROFILE_SPECIFIER: "Dev-ProvisioningProfile"
+        variables:
+          VARIABLE_ONE:
+            value: "variable1"
+          VARIABLE_TWO:
+            target: "Debug"
+            value: "variable2"
+
+    DoiITShopProd:
+      app:
+        name: "DoITShop-Prod"
+
+      android:
+        applicationId: "co.doitshop.shop"
+      ios:
+        bundleId: "co.doitshop.shop"
+        buildSettings:
+          # Development Team is visible in the apple developer portal
+          DEVELOPMENT_TEAM: YOURDEVTEAMID
+          PROVISIONING_PROFILE_SPECIFIER: "Dev-ProvisioningProfile"
+        variables:
+          VARIABLE_ONE:
+            value: "variable1"
+          VARIABLE_TWO:
+            target: "Debug"
+            value: "variable2"
+
+    ShopIT:
+      app:
+        name: "ShopIT"
+      android:
+        applicationId: "co.shopit.shop"
+        firebase:
+          config: ".firebase/shopit/google-services.json"
+      ios:
+        bundleId: "co.shopit.shop"
+        firebase:
+          config: ".firebase/shopit/GoogleService-Info.plist"
+        variables:
+          VARIABLE_ONE:
+            value: "variable1"
+          VARIABLE_TWO:
+            target: "Debug"
+            value: "variable2"

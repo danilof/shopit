@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1061642270113",
+    "project_id": "ev-data-project-91574",
+    "storage_bucket": "ev-data-project-91574.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061642270113:android:dddc3ef56dc5fb3a9cc7e0",
+        "android_client_info": {
+          "package_name": "com.kumuluz.crowdsensing.evcharging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061642270113-ml5dql9ft3p0kvupdtr5kfn1eqo52q2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEmRCZO9SmINQdmBBpNIPRNplwjd4fyGA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061642270113-ml5dql9ft3p0kvupdtr5kfn1eqo52q2l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

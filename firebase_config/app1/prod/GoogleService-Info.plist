@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>331738003099-rbh15222kgj3jjftims00i0j2r2dm5pn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.331738003099-rbh15222kgj3jjftims00i0j2r2dm5pn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDP6FTqtJ_yaRLjlg8NluLRInABctzIo00</string>
+	<key>GCM_SENDER_ID</key>
+	<string>331738003099</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>co.simfonija.proservis</string>
+	<key>PROJECT_ID</key>
+	<string>proservis-70089</string>
+	<key>STORAGE_BUCKET</key>
+	<string>proservis-70089.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:331738003099:ios:aac155fc0a8559c95c383e</string>
+</dict>
+</plist>

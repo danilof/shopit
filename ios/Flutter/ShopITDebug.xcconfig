@@ -1,0 +1,7 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main_ShopIT.dart
+ASSET_PREFIX=ShopIT
+BUNDLE_NAME=ShopIT
+BUNDLE_DISPLAY_NAME=ShopIT
+VARIABLE_ONE=variable1
